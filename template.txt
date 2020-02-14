@@ -33,6 +33,20 @@ UI templates
             </div>
         </div>
 
+    Weather UI:
+         <div class="tile is-parent">
+                <div class = "tile is-child box">
+                    <p class = "level">currentLocation</p>
+                    <div class = "columns">
+                        <img src="https://openweathermap.org/img/wn/" + imgId + "@2x.png" alt="" width="200px" class = "is-half">
+                        <div class = "is-half">
+                        <p class = "level">Weather State: weatherSt</p>
+                        <p class ="level">Temperature: currentTemp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     Song Results:
 
         <div class="tile is-parent">
