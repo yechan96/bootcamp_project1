@@ -9,58 +9,70 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- example song div -->
     <div class= "media" style="margin-left: auto; margin-right: auto;">
-        <button class="button is-info is-outlined">1</button>    
-        <figure class="media-left">
-            <p class="image is-96x96">
-                <img src="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg">
-            </p>
-        </figure>
-            
-        <div class="media-content">
-            <div class="content">
-                <p> <strong>Better Together</strong> <small>Jack Johnson</small></p>
-                <audio controls>
-                    <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/94/25/9c/94259c23-84ee-129d-709c-577186cbe211/mzaf_5653537699505456197.plus.aac.p.m4a">
-                </audio>
+        <!-- Page 2 Book Results -->
+        <!-- <h2><strong>Your Results:</strong></h2>
+        <article class="media">
+            <figure class="media-left">
+                <p class="bookcover">
+                    <img src="http://covers.openlibrary.org/b/isbn/9780385533225-S.jpg"/>
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                    <p>
+                        <strong>The Particular Sadness of Lemon Cake</strong> 
+                        <br>
+                        <div>By: Aimee Bender</div>
+                        <br>
+                        <div>Publish Year: 2010</div>
+                    </p>
+                </div>
             </div>
+        </article> -->
+        
+        <!-- Page 3 Tile Formatting -->
+        <!-- Example of Book UI -->
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-parent">
+                <div class="tile is-child box">
+                    <img src="http://covers.openlibrary.org/b/isbn/9780385533225-M.jpg" />
+                    <strong>The Particular Sadness of Lemon Cake</strong>
+                </div>
+            </div>
+           
+        <!-- Weather UI -->
+            <div class="tile is-parent">
+                <div class = "tile is-child box columns">
+                    <p>Location (City Name)</p>
+                    <img src="https://www.metaweather.com/static/img/weather/sn.svg" alt="" width="200px" class = "is-6">
+                    <p class = "is-5">Weather State: Snow</p>
+                    <p class = "is-5">Temperature: 30F</p>
+                    <p class = "is-5">wind speed: 15mph</p>
+                </div>
+            </div>
+        <!-- example song div -->
+            <div class="tile is-parent">
+                <div class="tile is-child box">
+                    <button class="button is-info is-outlined">1</button>    
+                    <figure class="media-left">
+                        <p class="image is-96x96">
+                        <img src="https://is2-ssl.mzstatic.com/image/thumb/Music118/v4/24/46/97/24469731-f56f-29f6-67bd-53438f59ebcb/source/100x100bb.jpg">
+                        </p>
+                    </figure>
+                        
+                    <div class="media-content">
+                        <div class="content">
+                            <p> <strong>Better Together</strong> <small>Jack Johnson</small></p>
+                            <audio controls>
+                                <source src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/94/25/9c/94259c23-84ee-129d-709c-577186cbe211/mzaf_5653537699505456197.plus.aac.p.m4a">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>  
         </div>
     </div>
     <br>
-    <!-- Book Results -->
-    <h2><strong>Your Results:</strong></h2>
-    <article class="media">
-        <figure class="media-left">
-          <p class="bookcover">
-            <img src="http://covers.openlibrary.org/b/isbn/9780385533225-S.jpg"/>
-          </p>
-        </figure>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong>The Particular Sadness of Lemon Cake</strong> 
-              <br>
-              By: Aimee Bender
-              <br>
-              Publish Year: 2010
-            </p>
-          </div>
-        </div>
-    </article>
-      
-    <!-- Image format for page 3 Book -->
-    <br>
-    <img src="http://covers.openlibrary.org/b/isbn/9780385533225-M.jpg" />
-    
-    <!-- Weather UI -->
-    <br>
-    <div class = "columns">
-        <p>Location (City Name)</p>
-        <img src="https://www.metaweather.com/static/img/weather/sn.svg" alt="" width="200px" class = "is-6">
-        <p class = "is-5">Weather State: Snow</p>
-        <p class = "is-5">Temperature: 30F</p>
-        <p class = "is-5">wind speed: 15mph</p>
-    </div>
 </body>
 </html>
