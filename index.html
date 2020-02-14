@@ -46,12 +46,16 @@
            
         <!-- Weather UI -->
             <div class="tile is-parent">
-                <div class = "tile is-child box columns">
-                    <p>Location (City Name)</p>
-                    <img src="https://www.metaweather.com/static/img/weather/sn.svg" alt="" width="200px" class = "is-6">
-                    <p class = "is-5">Weather State: Snow</p>
-                    <p class = "is-5">Temperature: 30F</p>
-                    <p class = "is-5">wind speed: 15mph</p>
+                <div class = "tile is-child box">
+                    <p class = "level">Location (City Name)</p>
+                    <div class = "columns">
+                        <img src="https://openweathermap.org/img/wn/" + imgId + "@2x.png" alt="" width="200px" class = "is-half">
+                        <div class = "is-half">
+                        <p class = "level">Weather State: Snow</p>
+                        <p class ="level">Temperature: 30F</p>
+                        <p class ="level">wind speed: 15mph</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         <!-- example song div -->
