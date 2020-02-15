@@ -19,8 +19,9 @@
 }
 
 /* Page 3 */
+
 /* Music Selections*/
-.musicSelection {
-    width: 100%;
-    overflow: scroll auto; 
- } 
+.is-scrollable{
+    overflow: scroll;
+    width: auto;
+} 
