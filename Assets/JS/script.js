@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $(".searchButton").on("click",function(){
-        hideExcept([".homeButton"]);
+        hideExcept([".homeButton",".page2"]);
     })
 
     $(".homeButton").on("click",function(){
@@ -10,7 +10,7 @@ $(document).ready(function(){
 })
 
 function hideExcept(array){
-    var hideElements = [".page1",".homeButton",".toSearchButton"];
+    var hideElements = [".page1",".homeButton",".toSearchButton", ".page2"];
     console.log(hideElements);
     for (var i=0; i<array.length; i++){
         $(array[i]).attr("style","display:block");

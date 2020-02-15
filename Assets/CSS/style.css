@@ -1,3 +1,19 @@
 .navButton{
     color: white;
+.page2{
+
+}
+
+.bkElements{
+    margin: 0 !important;
+    padding:0 px;
+    color: black;
+}
+
+.wrapper{
+    background-color: antiquewhite;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 3px
 }
