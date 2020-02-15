@@ -251,3 +251,8 @@ var countriesArr = [{"Country":"Afghanistan","Code":"AF"},
 {"Country":"Zimbabwe","Code":"ZW"}];
 
 
+var weatherKeyWords = {
+    "Drizzle": ["gloomy","humid","wet","moist"],
+    
+};
+

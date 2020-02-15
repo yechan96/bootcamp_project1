@@ -1,11 +1,24 @@
 $(document).ready(function(){
-    propagateOptions(countriesArr);
+    var libraryArr = [];
+    var finalSongsArr =[];
+    var weather = {};
+    var countryCode = "";
+    var subjectSongs = [];
+    var weatherSongs = [];
+    var keywordSongs = [];
+    var finalResults = []; //push object with finalSongsArr, etc.
+
+    var bookSearchTitle = "";
+    var location ="";
 
     $(".searchButton").on("click",function(){
+
+
         hideExcept([".homeButton",".page2"]);
     })
 
     $(".homeButton").on("click",function(){
+        //clearall function
         hideExcept([".page1"]);
     })
 
@@ -30,10 +43,10 @@ function hideExcept(array){
     }
 }
 
-function propagateOptions(array){
-    for (var i =0; i<array.length ; i++){
-        var tempCountry = $("<option>").attr("value", array[i].Code);
-        tempCountry.text(array[i].Country);
-        $("#countryOptions").append(tempCountry);
-    }
-}
+// function propagateOptions(array){
+//     for (var i =0; i<array.length ; i++){
+//         var tempCountry = $("<option>").attr("value", array[i].Code);
+//         tempCountry.text(array[i].Country);
+//         $("#countryOptions").append(tempCountry);
+//     }
+// }
