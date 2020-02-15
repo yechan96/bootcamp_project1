@@ -4,7 +4,7 @@ UI templates
         page(number), ex page1
 
     SearchCountryOption:
-        <option value="countryCode">Country <img src=""https://www.countryflags.io/:(countryCode)/:style/:size.png""></option>
+        <option value="countryCode">Country <img src="https://www.countryflags.io/:(countryCode)/:style/:size.png"></option>
 
 
     BookSearch Results:

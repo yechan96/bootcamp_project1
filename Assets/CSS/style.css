@@ -8,6 +8,7 @@
     color: black;
 }
 
+<<<<<<< HEAD
 .wrapperPg2{
     background-color: rgb(241, 241, 241);
     min-width: 100%;
@@ -21,3 +22,13 @@
     background-color: rgb(241, 241, 241);
 }
 
+=======
+
+/* Page 3 */
+
+/* Music Selections*/
+.is-scrollable{
+    overflow: scroll;
+    width: auto;
+} 
+>>>>>>> dbfbe56e
