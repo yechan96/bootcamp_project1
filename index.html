@@ -20,120 +20,119 @@
 <body>
 
     <section class="hero is-info is-fullheight">    
-      <!-- header with buttons -->
+        <!-- header with buttons -->
 
-      <div class="is-pulled-left" style="margin-left: 1em;">
-        <a class="homeButton navButton" style="display: none;">
-          Back to Home
-        </a>
-        <br>
-        <a class="toSearchButton navButton" style="display: none;">
-          Back to Search Results
-        </a>
-      </div>    
+        <div class="is-pulled-left" style="margin-left: 1em;">
+            <a class="homeButton navButton" style="display: none;">
+                Back to Home
+            </a>
+            <br>
+            <a class="toSearchButton navButton" style="display: none;">
+                Back to Search Results
+            </a>
+        </div>    
 
-      <div class="container">
-          <div class="hero-body">
+        <div class="container">
+            <div class="hero-body">
             
-            <div class="container has-text-centered">
+                <div class="container has-text-centered">
 
-                <div class="column is-6 is-offset-3">
-                  
+                    <div class="column is-6 is-offset-3">
+                    
+                        <h1 class="title">
+                            BOOK SEARCH
+                        </h1>
 
-                  <h1 class="title">
-                      BOOK SEARCH
-                  </h1>
+                        <h2 class="subtitle">
+                            Enter the title of a book. Sit back, relax and let the magic happen! &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        </h2>
 
-                  <h2 class="subtitle">
-                      Enter the title of a book. Sit back, relax and let the magic happen! &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  </h2>
+                        <!-- page 1 -->
 
-                  <!-- page 1 -->
+                        <div class="box page1">
 
-                  <div class="box page1">
-
-                    <div class="field is-grouped">
-                      <p class="control is-expanded">
-                        <input class="input" type="text" placeholder="Enter Book Title">
-                      </p>
-                      
-                      <p class="control">
-                        <a class="button is-info searchButton">
-                          Submit
-                        </a>             
-                      </p>
-                    </div>
-                      
-                    <div class="control">
-                      <div class="select">                            
-                        <select id="optionHead"> 
-                          <option value="CountryOfOrigin">Choose Your Country</option>
-                        </select>
-                      </div>  
-                    </div>
-
-                  </div> 
-
-                <!-- page 2 -->
-
-                  <div class = "page2" style="display: none;">
-                      <div class = "wrapper">
-                          <article class="media">
-                            <figure class="media-left">
-                                <p class="bookcover">
-                                    <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
-                                </p>
-                            </figure>
-                            <div class="media-content">
-                                <div class="content">
-                                    <div>
-                                        <strong class = "bkTitle">Title</strong> 
-                                        <p class = "bkElements">By: Author</p>
-                                        <p class = "bkElements">Publish Year: Year</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="media">
-                          <figure class="media-left">
-                              <p class="bookcover">
-                                  <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
-                              </p>
-                          </figure>
-                          <div class="media-content">
-                              <div class="content">
-                                  <div>
-                                      <strong class = "bkTitle">Title</strong> 
-                                      <p class = "bkElements">By: Author</p>
-                                      <p class = "bkElements">Publish Year: Year</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </article>
-                      <article class="media">
-                        <figure class="media-left">
-                            <p class="bookcover">
-                                <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
+                            <div class="field is-grouped">
+                            <p class="control is-expanded">
+                                <input class="input" type="text" placeholder="Enter Book Title">
                             </p>
-                        </figure>
-                        <div class="media-content">
-                            <div class="content">
-                                <div>
-                                    <strong class = "bkTitle">Title</strong> 
-                                    <p class = "bkElements">By: Author</p>
-                                    <p class = "bkElements">Publish Year: Year</p>
-                                </div>
+                            
+                            <p class="control">
+                                <a class="button is-info searchButton">
+                                Submit
+                                </a>             
+                            </p>
+                            </div>
+                            
+                            <div class="control">
+                            <div class="select">                            
+                                <select id="optionHead"> 
+                                <option value="CountryOfOrigin">Choose Your Country</option>
+                                </select>
+                            </div>  
                             </div>
                         </div>
-                    </article>
-                      
-                      </div>
-                  </div>
+                        <!--end of page1  -->
+                    </div> 
+                    <!-- end of col is-6 -->
 
-                  <!-- page 3 -->
+                    <!-- page 2 -->
 
+                    <div class = "page2" style="display: none;">
+                        <div class = "wrapper">
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="bookcover">
+                                        <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <div>
+                                            <strong class = "bkTitle">Title</strong> 
+                                            <p class = "bkElements">By: Author</p>
+                                            <p class = "bkElements">Publish Year: Year</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
 
-                
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="bookcover">
+                                        <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <div>
+                                            <strong class = "bkTitle">Title</strong> 
+                                            <p class = "bkElements">By: Author</p>
+                                            <p class = "bkElements">Publish Year: Year</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="media">
+                                <figure class="media-left">
+                                    <p class="bookcover">
+                                        <img src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
+                                    </p>
+                                </figure>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <div>
+                                            <strong class = "bkTitle">Title</strong> 
+                                            <p class = "bkElements">By: Author</p>
+                                            <p class = "bkElements">Publish Year: Year</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- end of page2 -->
+                </div>
             </div>
         </div>
     </section>
