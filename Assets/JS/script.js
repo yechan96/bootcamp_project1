@@ -11,7 +11,6 @@ $(document).ready(function(){
 
 function hideExcept(array){
     var hideElements = [".page1",".homeButton",".toSearchButton", ".page2"];
-    console.log(hideElements);
     for (var i=0; i<array.length; i++){
         $(array[i]).attr("style","display:block");
         hideElements.splice( hideElements.indexOf(array[i]), 1 );
@@ -19,5 +18,8 @@ function hideExcept(array){
     for(var i =0; i<hideElements.length;i++){
         $(hideElements[i]).attr("style","display:none");
     }
-    console.log(hideElements);
+}
+
+function propagateOptions(array){
+    
 }
