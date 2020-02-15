@@ -9,10 +9,18 @@ $(document).ready(function(){
         hideExcept([".page1"]);
     })
 
+    $(".bkResults").on("click",function(){
+        hideExcept([".homeButton",".toSearchButton",".page3"]);
+    })
+
+    $(".toSearchButton").on("click",function(){
+        hideExcept([".homeButton",".page2"]);
+    })
+
 })
 
 function hideExcept(array){
-    var hideElements = [".page1",".homeButton",".toSearchButton", ".page2"];
+    var hideElements = [".page1",".homeButton",".toSearchButton", ".page2",".page3"];
     for (var i=0; i<array.length; i++){
         $(array[i]).attr("style","display:block");
         hideElements.splice( hideElements.indexOf(array[i]), 1 );
