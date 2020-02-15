@@ -73,3 +73,4 @@ UI templates
 Functions
     hideExcept(array)
         hides all elements that are in hideElements array except the input array
+
