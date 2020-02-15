@@ -4,14 +4,20 @@
 
 .bkElements{
     margin: 0 !important;
-    padding:0 px;
+    padding:0;
     color: black;
 }
 
-.wrapper{
-    background-color: antiquewhite;
-    border-style: solid;
-    border-color: black;
-    border-radius: 10px;
-    padding: 3px
+.wrapperPg2{
+    background-color: rgb(241, 241, 241);
+    min-width: 100%;
+    padding: 12px;
+    border-radius: 3px;
 }
+
+.bkResults{
+    text-align: left;
+    height: fit-content;
+    background-color: rgb(241, 241, 241);
+}
+
