@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    propagateOptions(countriesArr);
+
     $(".searchButton").on("click",function(){
         hideExcept([".homeButton",".page2"]);
     })
@@ -21,5 +23,9 @@ function hideExcept(array){
 }
 
 function propagateOptions(array){
-    
+    for (var i =0; i<array.length ; i++){
+        var tempCountry = $("<option>").attr("value", array[i].Code);
+        tempCountry.text(array[i].Country);
+        $("#countryOptions").append(tempCountry);
+    }
 }
