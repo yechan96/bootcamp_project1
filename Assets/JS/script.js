@@ -6,13 +6,13 @@ $(document).ready(function(){
     })
 
     $(".homeButton").on("click",function(){
-        hideExcept([".page1"]);
+        hideExcept([".page1",".page3"]);
     })
 
 })
 
 function hideExcept(array){
-    var hideElements = [".page1",".homeButton",".toSearchButton", ".page2"];
+    var hideElements = [".page1",".homeButton",".toSearchButton", ".page2",".page3"];
     for (var i=0; i<array.length; i++){
         $(array[i]).attr("style","display:block");
         hideElements.splice( hideElements.indexOf(array[i]), 1 );
