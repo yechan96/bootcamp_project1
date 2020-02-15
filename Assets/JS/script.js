@@ -6,7 +6,15 @@ $(document).ready(function(){
     })
 
     $(".homeButton").on("click",function(){
-        hideExcept([".page1",".page3"]);
+        hideExcept([".page1"]);
+    })
+
+    $(".bkResults").on("click",function(){
+        hideExcept([".homeButton",".toSearchButton",".page3"]);
+    })
+
+    $(".toSearchButton").on("click",function(){
+        hideExcept([".homeButton",".page2"]);
     })
 
 })
