@@ -51,13 +51,13 @@
 
                             <div class="field is-grouped">
                                 <p class="control is-expanded">
-                                    <input class="input" type="text" placeholder="Enter Book Title">
+                                    <input id="bkSearchInp" class="input" type="text" placeholder="Enter Book Title">
                                 </p>    
                             </div>
 
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Enter Location">
+                            <div class="field" >
+                                <div class="control" >
+                                    <input id="locationInp" class="input" type="text" placeholder="Enter Location" style="display: none;">
                                 </div>
 
                                 <!-- <div class="field has-addons" style="margin-top: 1em;">
@@ -71,7 +71,7 @@
                                 </div>  -->
 
                                 <p class="control" style="margin-top: 1em;">
-                                    <a class="button is-info searchButton">
+                                    <a class="button is-info searchButton" style="display: none;">
                                     Submit
                                     </a>             
                                 </p>
@@ -85,16 +85,16 @@
                     <div class="page2" style="display: none;">
                         <div class="wrapperPg2">
                             <!-- start of button -->
-                            <div class="button columns bkResults">
+                            <!-- <div class="button columns bkResults">
                                 <figure class="is-one-fifth">
                                     <img class="bkImg" src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
                                 </figure>
-                                <div class="column">
+                                <div class="bkInfo column">
                                     <strong class="bkTitle">Title</strong> 
                                     <p class="bkElements">By: Author</p>
                                     <p class="bkElements">Publish Year: Year</p>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- end of button -->
                         </div>  
                     </div>
