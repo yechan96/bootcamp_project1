@@ -11,16 +11,30 @@
 .wrapperPg2{
     background-color: rgb(241, 241, 241);
     min-width: 100%;
-    padding: 12px;
-    border-radius: 3px;
+    border-radius: 5px;
+}
+
+.bkImg{
+    height: 100px;
+}
+
+.bkTitle{
+    font-size: 23px;
+}
+
+.bkInfo{
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .bkResults{
     text-align: left;
     height: fit-content;
+    margin: 0 !important;
+    padding: 0 !important;
     background-color: rgb(241, 241, 241);
+    min-width: 100%;
 }
-
 
 /* Page 3 */
 
