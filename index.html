@@ -57,7 +57,7 @@
 
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Enter Location">
+                                    <input class="input locationInput" type="text" placeholder="Enter Location">
                                 </div>
 
                                 <!-- <div class="field has-addons" style="margin-top: 1em;">
@@ -117,13 +117,13 @@
                     <!-- Weather DIV -->
                     <div class="tile is-parent">
                         <div class = "weatherContent tile is-child is-vertical box">
-                        <strong class = "locationTitle">Location (City Name)</strong>
+                        <strong class = "locationTitle">Location:<span id="weatherName"></span></strong>
                         <div class ="weatherImage">
-                            <img src="http://openweathermap.org/img/wn/13d@2x.png" alt="" width="200px" class ="Wis-half">
+                            <img src="http://openweathermap.org/img/wn/13d@2x.png" alt="" width="200px" class ="Wis-half" id="weatherIcon">
                             <div class = "weatherStatus">
-                            <p class ="weatherElements"><b>Weather State:</b> Snow</p>
-                            <p class ="weatherElements"><b>Temperature:</b> 30F</p>
-                            <p class ="weatherElements"><b>Wind Speed:</b> 15mph</p>
+                            <p class ="weatherElements"><b>Weather State:</b> <span id="weatherState">Snow</span></p>
+                            <p class ="weatherElements"><b>Temperature:</b> <span id="weatherTemp">30</span>F</p>
+                            <p class ="weatherElements"><b>Wind Speed:</b> <span id="weatherWind">15</span>mph</p>
                             </div>
                         </div>
                         </div>
