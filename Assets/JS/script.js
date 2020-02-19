@@ -52,7 +52,6 @@ $(document).ready(function(){
             }
         })
        
-
         hideExcept([".homeButton",".page2"]);
     })
 
@@ -61,7 +60,7 @@ $(document).ready(function(){
         hideExcept([".page1"]);
     })
 
-    $(".bkResults").on("click",function(){
+    $(document).on("click", ".bkResults", function(){
         hideExcept([".homeButton",".toSearchButton",".page3"]);
     })
 
@@ -97,24 +96,6 @@ $(document).ready(function(){
         $(".searchButton").show()
     }
 
-    //makes the new html elements and appends them to display library search results
-    function displayLibArry(arry, counter){
-        var newBtn = $("<button class='button columns bkResults' value='" + counter + "'>");
-        var fgTemp = $("<figure class='column is-2'>");
-        var imgTemp = $("<img class='bkImg' src='https://covers.openlibrary.org/b/id/" + arry[counter].cover_i + "-M.jpg'>");
-        var divTemp = $("<div class='bkInfo column'>");
-        var strTitle = $("<strong class='bkTitle'>").text(arry[counter].title);
-        var authorTemp = $("<p class='bkElements'>").text("By: " + arry[counter].author_name[0]);
-        var yearTemp = $("<p class='bkElements'>").text("Publish Year: " + arry[counter].first_publish_year);
-        
-            divTemp.append(strTitle);
-            divTemp.append(authorTemp);
-            divTemp.append(yearTemp);
-            fgTemp.append(imgTemp);
-            newBtn.append(fgTemp);
-            newBtn.append(divTemp);
-            $(".wrapperPg2").append(newBtn);
-    }
 })
 
 function hideExcept(array){
@@ -136,5 +117,22 @@ function hideExcept(array){
 //     }
 // }
 
-
+    //makes the new html elements and appends them to display library search results
+    function displayLibArry(arry, counter){
+        var newBtn = $("<button class='button columns bkResults' value='" + counter + "'>");
+        var fgTemp = $("<figure class='column is-2'>");
+        var imgTemp = $("<img class='bkImg' src='https://covers.openlibrary.org/b/id/" + arry[counter].cover_i + "-M.jpg'>");
+        var divTemp = $("<div class='bkInfo column'>");
+        var strTitle = $("<strong class='bkTitle'>").text(arry[counter].title);
+        var authorTemp = $("<p class='bkElements'>").text("By: " + arry[counter].author_name[0]);
+        var yearTemp = $("<p class='bkElements'>").text("Publish Year: " + arry[counter].first_publish_year);
+        
+            divTemp.append(strTitle);
+            divTemp.append(authorTemp);
+            divTemp.append(yearTemp);
+            fgTemp.append(imgTemp);
+            newBtn.append(fgTemp);
+            newBtn.append(divTemp);
+            $(".wrapperPg2").append(newBtn);
+    }
 
