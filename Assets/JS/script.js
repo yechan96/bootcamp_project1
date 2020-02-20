@@ -19,10 +19,12 @@ $(document).ready(function(){
         bookSearchTitle =  $("#bkSearchInp").val();
         $("#bkSearchInp").val("");
         if(location == ""){
+
             location = $("#locationInp").val();
             $("#locationInp").val("");
+            getWeather()
         }
-
+        
         var bkApiUrl = "https://openlibrary.org/search.json?q=";
         var searchTemp = bookSearchTitle.replace(/ /g, "+");
         var query = bkApiUrl + searchTemp;
@@ -79,6 +81,19 @@ $(document).ready(function(){
         $("#weatherWind").text(weather.wind)
         $("#weatherIcon").attr("src", `http://openweathermap.org/img/wn/${weather.icon}.png`)
     }
+    function getWeather(){
+        var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location+ "&units=imperial&appid=f56c94699b79bf806441d23eacbfa401"
+        $.get(weatherURL, function(param){
+       console.log("success callback")
+       weather.name=param.name
+       weather.state=param.weather[0].description
+       weather.temp=param.main.temp
+       weather.wind=param.wind.speed
+       weather.icon=param.weather[0].icon
+       console.log("weatcher",weather)
+   })
+
+    }
     //function if successfuly obtained user geolocation
     function success(position) {
         var currentLat = "lat=" + position.coords.latitude
@@ -89,10 +104,15 @@ $(document).ready(function(){
         $.ajax({
             url: queryURL,
             method: "GET",
-            success: function(response){
-                weather = response
-                location = response.name
-                countryCode = response.sys.country
+            success: function(param){
+                weather.name=param.name
+                weather.state=param.weather[0].description
+                weather.temp=param.main.temp
+                weather.wind=param.wind.speed
+                weather.icon=param.weather[0].icon
+                // weather = response
+                location = param.name
+                countryCode = param.sys.country
                 $(".searchButton").show()
             }
         })  
@@ -102,6 +122,8 @@ $(document).ready(function(){
     function error() {
         $("#locationInp").show()
         $(".searchButton").show()
+    
+
     }
 
 })
