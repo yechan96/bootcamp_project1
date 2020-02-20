@@ -61,6 +61,7 @@ $(document).ready(function(){
     })
 
     $(document).on("click", ".bkResults", function(){
+        displayWeather()
         hideExcept([".homeButton",".toSearchButton",".page3"]);
     })
 
