@@ -71,7 +71,14 @@ $(document).ready(function(){
 
 
     //***************FUNCTION within Scope  *************/
-
+    function displayWeather(){
+        console.log("this is the weather", weather)
+        $("#weatherName").text(weather.name)
+        $("#weatherState").text(weather.state)
+        $("#weatherTemp").text(weather.temp)
+        $("#weatherWind").text(weather.wind)
+        $("#weatherIcon").attr("src", `http://openweathermap.org/img/wn/${weather.icon}.png`)
+    }
     //function if successfuly obtained user geolocation
     function success(position) {
         var currentLat = "lat=" + position.coords.latitude
