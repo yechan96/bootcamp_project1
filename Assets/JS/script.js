@@ -90,7 +90,7 @@ $(document).ready(function(){
             var weatherKeyWord ="";
             var weatherDescription =weather.weather[0].main;
             if(weatherKeyWords[weatherDescription] !=undefined){
-                weatherKeyWord = weatherKeyWords[weatherDescription];
+                weatherKeyWord = weatherKeyWords[weatherDescription][Math.floor(Math.random()*weatherKeyWord[weatherDescription].length)];
             }
             $.when(itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)).done(function(a1,a2,a3,a4){
                 var finalSongsArr =[];
