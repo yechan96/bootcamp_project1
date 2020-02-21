@@ -206,7 +206,8 @@ function itunesSearch(word,countryCode){
     var ituneQuery = "https://itunes.apple.com/search?term="+word;//+"&country="+countryCode;
     return $.ajax({
         url: ituneQuery,
-        method: "GET"
+        method: "GET",
+        crossDomain: true
     })
 }
 
