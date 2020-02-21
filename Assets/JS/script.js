@@ -261,7 +261,7 @@ function displayBook(array,index){
     tempTitle.attr("style", "text-align: center;");
     tempTitle.text(tempItem.title);
     var tempBR = $("<br>");
-    var tempImg = $("<img>").attr("src", "http://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
+    var tempImg = $("<img>").attr("src", "https://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
     tempImg.attr("style", "margin-right:auto; margin-left:auto");
 
     $(".bkResults").append(tempTitle,tempBR,tempImg);
