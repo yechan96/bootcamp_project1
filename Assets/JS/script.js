@@ -32,7 +32,6 @@ $(document).ready(function(){
             location = $("#locationInp").val();
             callWeatherAPI(location,"","");
             $("#locationInp").val("");
-            getWeather()
         }
         
         var bkApiUrl = "https://openlibrary.org/search.json?q=";
