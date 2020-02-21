@@ -18,7 +18,13 @@ $(document).ready(function(){
 
     $(".searchButton").on("click",function(){
         $(".wrapperPg2").empty()
+        
         bookSearchTitle =  $("#bkSearchInp").val();
+        if(bookSearchTitle==""){
+            $("#blankModal").show()
+            $("#blankModal").delay(5000).fadeOut()
+            return
+        }
         $("#bkSearchInp").val("");
         if(location == ""){
             location = $("#locationInp").val();
@@ -35,7 +41,6 @@ $(document).ready(function(){
             success: function(response){
                 libraryArr = response.docs;
                 var indexCounter = 0;
-
                 //loop to get 10 results to display from the array
                 for(i = 0; i<10; i++){
                     var arryExist = false; 
