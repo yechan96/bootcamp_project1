@@ -1,15 +1,8 @@
 $(document).ready(function(){
     var libraryArr = [];
-    var finalSongsArr =[];
     var weather = {};
     var countryCode = "";
-    var titleSongs = [];
-    var subjectSongs = [];
-    var weatherSongs = [];
-    var keywordSongs = [];
     var finalResults = {}; //push object with finalSongsArr, etc.
-
-
     var bookSearchTitle = "";
     var location ="";
 
@@ -90,10 +83,11 @@ $(document).ready(function(){
             var weatherDescription ="";
             // itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)
             $.when(itunesSearch("chanmina"),itunesSearch("new hope club"),itunesSearch("10cm"),itunesSearch("bts")).done(function(a1,a2,a3,a4){
-                titleSongs = JSON.parse(a1[0]).results;
-                subjectSongs = JSON.parse(a2[0]).results;
-                weatherSongs = JSON.parse(a3[0]).results;
-                keywordSongs = JSON.parse(a4[0]).results;
+                var finalSongsArr =[];
+                var titleSongs = JSON.parse(a1[0]).results;
+                var subjectSongs = JSON.parse(a2[0]).results;
+                var weatherSongs = JSON.parse(a3[0]).results;
+                var keywordSongs = JSON.parse(a4[0]).results;
 
                 addToFinalSongs(titleSongs,5,finalSongsArr);
                 addToFinalSongs(subjectSongs,5,finalSongsArr);
