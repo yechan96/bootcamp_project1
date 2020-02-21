@@ -253,6 +253,18 @@ var countriesArr = [{"Country":"Afghanistan","Code":"AF"},
 
 var weatherKeyWords = {
     "Drizzle": ["gloomy","humid","wet","moist"],
-    
+    "Rain": ["depressing", "emo", "sad", "drench"],
+    "Snow": ["white", "fluffy", "cold", "frozen"],
+    "Mist": ["foggy", "eerie", "dazed", "moist"],
+    "Smoke": ["mysterious", "fire", "worried", "dark"],
+    "Haze": ["mysterious", "eerie", "worried", "dark"],
+    "Fog": ["mysterious", "eerie", "dazed", "fuzzy"],
+    "Sand": ["dirty", "yellow", "rough", "grainy"],
+    "Ash": ["smoke", "dusty", "volcanic", "aftermath"],
+    "Dust": ["dirty", "sneeze", "cough", "storm"],
+    "Squall": ["gust", "windy", "rush", "storm"],
+    "Tornado": ["danger", "spin", "violent", "distruction"],
+    "Clear": ["crystalline", "sunny", "happy", "fun"],
+    "Clouds": ["gloomy", "sad", "emo", "cool"]
 };
 
