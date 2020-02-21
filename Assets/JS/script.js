@@ -44,7 +44,6 @@ $(document).ready(function(){
             method: "GET",
             success: function(response){
                 libraryArr = response.docs;
-                console.log(libraryArr)
                 var indexCounter = 0;
                 //loop to get 10 results to display from the array
                 for(i = 0; i<10; i++){
@@ -120,14 +119,6 @@ $(document).ready(function(){
 
 
     //***************FUNCTION within Scope  *************/
-    function displayWeather(){
-        console.log("this is the weather", weather)
-        $("#weatherName").text(weather.name)
-        $("#weatherState").text(weather.state)
-        $("#weatherTemp").text(weather.temp)
-        $("#weatherWind").text(weather.wind)
-        $("#weatherIcon").attr("src", `http://openweathermap.org/img/wn/${weather.icon}.png`)
-    }
 
     //function if successfuly obtained user geolocation
     function success(position) {
@@ -213,7 +204,7 @@ function displayLibArry(arry, counter){
 }
 
 function itunesSearch(word,countryCode){
-    var ituneQuery = "https://itunes.apple.com/search?term="+word+"&country="+countryCode;
+    var ituneQuery = "https://itunes.apple.com/search?term="+word;//+"&country="+countryCode;
     return $.ajax({
         url: ituneQuery,
         method: "GET"
@@ -266,16 +257,16 @@ function displaySongs(object,index){
 }
 
 function displayBook(array,index){
-    $(".bkResults").empty();
+    $(".bkFinal").empty();
     var tempItem = array[index];
     var tempTitle = $("<strong>").attr("class","finalTitle");
     tempTitle.attr("style", "text-align: center;");
     tempTitle.text(tempItem.title);
     var tempBR = $("<br>");
-    var tempImg = $("<img>").attr("src", "http://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
+    var tempImg = $("<img>").attr("src", "https://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
     tempImg.attr("style", "margin-right:auto; margin-left:auto");
 
-    $(".bkResults").append(tempTitle,tempBR,tempImg);
+    $(".bkFinal").append(tempTitle,tempBR,tempImg);
 
 }
 
