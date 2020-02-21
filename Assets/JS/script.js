@@ -67,9 +67,10 @@ $(document).ready(function(){
     $(document).on("click", ".bkResults", function(){
         var index = this.value;
         if(finalResults[index] != null){
-            //displaySongs(array,index);
+            displaySongs(finalResults,index);
             //displayBook;
             //displayWeather;
+            hideExcept([".homeButton",".toSearchButton",".page3"]);
         }
         else{
             var subject = "";
@@ -95,14 +96,19 @@ $(document).ready(function(){
                 addToFinalSongs(keywordSongs,5,finalSongsArr);
                 shuffle(finalSongsArr);
                 finalResults[index] = finalSongsArr;
+                displaySongs(finalResults,index);
                 console.log(finalResults);
-                //displaySongs(array,index);
                 //displayBook;
                 //displayWeather;
+                hideExcept([".homeButton",".toSearchButton",".page3"]);
             })
         }
+<<<<<<< HEAD
         displayWeather()
         hideExcept([".homeButton",".toSearchButton",".page3"]);
+=======
+        
+>>>>>>> daa7b7a93ddf35b9e6e1c6db456fc067e427d434
     })
 
     $(".toSearchButton").on("click",function(){
@@ -218,6 +224,37 @@ function addToFinalSongs(inputArray,weight,outputArray){
     shuffle(inputArray);
     for(var i =0; i<length;i++){
         outputArray.push(inputArray[i]);
+    }
+}
+
+function displaySongs(object,index){
+    $(".musicSelection").empty();
+    var tempArray = object[index];
+    var songIndex = 0;
+    while(songIndex<10){
+        var tempItem = tempArray[songIndex];
+        if(tempItem.kind == "song"){
+            var tempHead = $("<div>").attr("class", "musicChoice tile is-child box");
+            var tempImageHead = $("<figure>").attr("class","media-left");
+            var tempImageContainer = $("<p>").attr("class","image is-64x64");
+            var tempImage = $("<img>").attr("src",tempItem.artworkUrl100);
+            tempImageHead.append(tempImageContainer.append(tempImage));
+
+            var tempSongHead =$("<div>").attr("class","media-content");
+            var tempSongContainer =$("<div>").attr("class","content");
+            var tempSongText=$("<p>");
+            var tempSongTitle = $("<strong>").text(tempItem.trackName+"\n");
+            var tempSongArtist =$("<small>").text(tempItem.artistName);
+            tempSongText.append(tempSongTitle,tempSongArtist);
+            var tempSongPlayer = $("<audio controls>");
+            var tempSongSource = $("<source>").attr("src",tempItem.previewUrl);
+
+            tempSongHead.append(tempSongContainer.append(tempSongText,tempSongPlayer.append(tempSongSource)));
+
+            tempHead.append(tempImageHead,tempSongHead);
+            $(".musicSelection").append(tempHead);
+            songIndex++;
+        }
     }
 }
 
