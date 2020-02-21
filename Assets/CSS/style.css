@@ -50,3 +50,17 @@
     overflow: scroll;
     width: auto;
 } 
+
+@media only screen and (max-width: 768px){
+    .bkTitle{
+        font-size: 4vw;
+    }
+    .bkInfo{
+        font-size: 3vw;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .page3{
+        margin-left: -3em;
+    }
+}
