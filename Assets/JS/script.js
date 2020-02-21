@@ -35,6 +35,7 @@ $(document).ready(function(){
             method: "GET",
             success: function(response){
                 libraryArr = response.docs;
+                console.log(libraryArr)
                 var indexCounter = 0;
                 //loop to get 10 results to display from the array
                 for(i = 0; i<10; i++){
@@ -66,7 +67,7 @@ $(document).ready(function(){
         var index = this.value;
         if(finalResults[index] != null){
             displaySongs(finalResults,index);
-            //displayBook;
+            displayBook(finalResults, index)
             //displayWeather;
             hideExcept([".homeButton",".toSearchButton",".page3"]);
         }
@@ -102,12 +103,7 @@ $(document).ready(function(){
                 hideExcept([".homeButton",".toSearchButton",".page3"]);
             })
         }
-<<<<<<< HEAD
-        displayWeather()
-        hideExcept([".homeButton",".toSearchButton",".page3"]);
-=======
         
->>>>>>> daa7b7a93ddf35b9e6e1c6db456fc067e427d434
     })
 
     $(".toSearchButton").on("click",function(){
@@ -124,19 +120,7 @@ $(document).ready(function(){
         $("#weatherWind").text(weather.wind)
         $("#weatherIcon").attr("src", `http://openweathermap.org/img/wn/${weather.icon}.png`)
     }
-    function getWeather(){
-        var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location+ "&units=imperial&appid=f56c94699b79bf806441d23eacbfa401"
-        $.get(weatherURL, function(param){
-            console.log("success callback")
-            weather.name=param.name
-            weather.state=param.weather[0].description
-            weather.temp=param.main.temp
-            weather.wind=param.wind.speed
-            weather.icon=param.weather[0].icon
-            console.log("weatcher",weather)
-        })
 
-    }
     //function if successfuly obtained user geolocation
     function success(position) {
         var currentLat = "lat=" + position.coords.latitude
@@ -148,12 +132,7 @@ $(document).ready(function(){
             url: queryURL,
             method: "GET",
             success: function(param){
-                weather.name=param.name
-                weather.state=param.weather[0].description
-                weather.temp=param.main.temp
-                weather.wind=param.wind.speed
-                weather.icon=param.weather[0].icon
-                // weather = response
+                weather = response
                 location = param.name
                 countryCode = param.sys.country
                 $(".searchButton").show()
@@ -267,3 +246,4 @@ function shuffle(array){
         return Math.random() - 0.5;
     });
 }
+
