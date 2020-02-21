@@ -203,11 +203,10 @@ function displayLibArry(arry, counter){
 }
 
 function itunesSearch(word,countryCode){
-    var ituneQuery = "https://itunes.apple.com/search?term="+word;//+"&country="+countryCode;
+    var ituneQuery = "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term="+word;//+"&country="+countryCode;
     return $.ajax({
         url: ituneQuery,
         method: "GET",
-        crossDomain: true
     })
 }
 
