@@ -3,10 +3,12 @@ $(document).ready(function(){
     var finalSongsArr =[];
     var weather = {};
     var countryCode = "";
+    var titleSongs = [];
     var subjectSongs = [];
     var weatherSongs = [];
     var keywordSongs = [];
-    var finalResults = []; //push object with finalSongsArr, etc.
+    var finalResults = {}; //push object with finalSongsArr, etc.
+
 
     var bookSearchTitle = "";
     var location ="";
@@ -58,11 +60,47 @@ $(document).ready(function(){
     })
 
     $(".homeButton").on("click",function(){
-        //clearall function
+        empty()
         hideExcept([".page1"]);
     })
 
     $(document).on("click", ".bkResults", function(){
+        var index = this.value;
+        if(finalResults[index] != null){
+            //displaySongs(array,index);
+            //displayBook;
+            //displayWeather;
+        }
+        else{
+            var subject = "";
+            var title = libraryArr[index].title;
+            if(libraryArr[index].subject != undefined){
+                subject = libraryArr[index].subject;
+            }
+            else{
+                subject = "book";
+            }
+            var weatherKeyWord ="";
+            var weatherDescription ="";
+            // itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)
+            $.when(itunesSearch("chanmina"),itunesSearch("new hope club"),itunesSearch("10cm"),itunesSearch("bts")).done(function(a1,a2,a3,a4){
+                titleSongs = JSON.parse(a1[0]).results;
+                subjectSongs = JSON.parse(a2[0]).results;
+                weatherSongs = JSON.parse(a3[0]).results;
+                keywordSongs = JSON.parse(a4[0]).results;
+
+                addToFinalSongs(titleSongs,5,finalSongsArr);
+                addToFinalSongs(subjectSongs,5,finalSongsArr);
+                addToFinalSongs(weatherSongs,5,finalSongsArr);
+                addToFinalSongs(keywordSongs,5,finalSongsArr);
+                shuffle(finalSongsArr);
+                finalResults[index] = finalSongsArr;
+                console.log(finalResults);
+                //displaySongs(array,index);
+                //displayBook;
+                //displayWeather;
+            })
+        }
         displayWeather()
         hideExcept([".homeButton",".toSearchButton",".page3"]);
     })
@@ -147,22 +185,44 @@ function hideExcept(array){
 //     }
 // }
 
-    //makes the new html elements and appends them to display library search results
-    function displayLibArry(arry, counter){
-        var newBtn = $("<button class='button columns bkResults' value='" + counter + "'>");
-        var fgTemp = $("<figure class='column is-2'>");
-        var imgTemp = $("<img class='bkImg' src='https://covers.openlibrary.org/b/id/" + arry[counter].cover_i + "-M.jpg'>");
-        var divTemp = $("<div class='bkInfo column'>");
-        var strTitle = $("<strong class='bkTitle'>").text(arry[counter].title);
-        var authorTemp = $("<p class='bkElements'>").text("By: " + arry[counter].author_name[0]);
-        var yearTemp = $("<p class='bkElements'>").text("Publish Year: " + arry[counter].first_publish_year);
-        
-            divTemp.append(strTitle);
-            divTemp.append(authorTemp);
-            divTemp.append(yearTemp);
-            fgTemp.append(imgTemp);
-            newBtn.append(fgTemp);
-            newBtn.append(divTemp);
-            $(".wrapperPg2").append(newBtn);
-    }
+//makes the new html elements and appends them to display library search results
+function displayLibArry(arry, counter){
+    var newBtn = $("<button class='button columns bkResults' value='" + counter + "'>");
+    var fgTemp = $("<figure class='column is-2'>");
+    var imgTemp = $("<img class='bkImg' src='https://covers.openlibrary.org/b/id/" + arry[counter].cover_i + "-M.jpg'>");
+    var divTemp = $("<div class='bkInfo column'>");
+    var strTitle = $("<strong class='bkTitle'>").text(arry[counter].title);
+    var authorTemp = $("<p class='bkElements'>").text("By: " + arry[counter].author_name[0]);
+    var yearTemp = $("<p class='bkElements'>").text("Publish Year: " + arry[counter].first_publish_year);
+    
+        divTemp.append(strTitle);
+        divTemp.append(authorTemp);
+        divTemp.append(yearTemp);
+        fgTemp.append(imgTemp);
+        newBtn.append(fgTemp);
+        newBtn.append(divTemp);
+        $(".wrapperPg2").append(newBtn);
+}
 
+function itunesSearch(word,countryCode){
+    var ituneQuery = "https://itunes.apple.com/search?term="+word; //&country=ca"
+    return $.ajax({
+        url: ituneQuery,
+        method: "GET"
+    })
+}
+
+function addToFinalSongs(inputArray,weight,outputArray){
+    var scale = weight/10;
+    var length = Math.floor(scale*inputArray.length);
+    shuffle(inputArray);
+    for(var i =0; i<length;i++){
+        outputArray.push(inputArray[i]);
+    }
+}
+
+function shuffle(array){
+    array.sort(() => {
+        return Math.random() - 0.5;
+    });
+}
