@@ -81,7 +81,7 @@ $(document).ready(function(){
             var subject = "";
             var title = libraryArr[index].title;
             if(libraryArr[index].subject != undefined){
-                subject = libraryArr[index].subject;
+                subject = libraryArr[index].subject[Math.floor(Math.random()*libraryArr[index].subject.length)];
             }
             else{
                 subject = "book";
