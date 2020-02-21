@@ -157,7 +157,7 @@ $(document).ready(function(){
                 $(".weather-state").text(weather.weather[0].main);
                 $(".temperature-f").text(weather.main.temp);
                 $(".wind-speed").text(weather.wind.speed);
-                $(".Wis-half").attr("src", "http://openweathermap.org/img/wn/"+weather.weather[0].icon+"@2x.png");
+                $(".Wis-half").attr("src", "https://openweathermap.org/img/wn/"+weather.weather[0].icon+"@2x.png");
                 $(".searchButton").show()
             }
         }) 
