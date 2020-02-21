@@ -67,7 +67,7 @@ $(document).ready(function(){
         if(finalResults[index] != null){
             //displaySongs(array,index);
             //displayBook;
-            //displaryWeather;
+            //displayWeather;
         }
         else{
             var subject = "";
@@ -93,9 +93,10 @@ $(document).ready(function(){
                 addToFinalSongs(keywordSongs,5,finalSongsArr);
                 shuffle(finalSongsArr);
                 finalResults[index] = finalSongsArr;
+                console.log(finalResults);
                 //displaySongs(array,index);
                 //displayBook;
-                //displaryWeather;
+                //displayWeather;
             })
         }
         hideExcept([".homeButton",".toSearchButton",".page3"]);
