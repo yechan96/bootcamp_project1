@@ -204,7 +204,7 @@ function displayLibArry(arry, counter){
 }
 
 function itunesSearch(word,countryCode){
-    var ituneQuery = "https://itunes.apple.com/search?term="+word+"&country="+countryCode;
+    var ituneQuery = "https://itunes.apple.com/search?term="+word;//+"&country="+countryCode;
     return $.ajax({
         url: ituneQuery,
         method: "GET"
@@ -257,7 +257,7 @@ function displaySongs(object,index){
 }
 
 function displayBook(array,index){
-    $(".bkResults").empty();
+    $(".bkFinal").empty();
     var tempItem = array[index];
     var tempTitle = $("<strong>").attr("class","finalTitle");
     tempTitle.attr("style", "text-align: center;");
@@ -266,7 +266,7 @@ function displayBook(array,index){
     var tempImg = $("<img>").attr("src", "https://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
     tempImg.attr("style", "margin-right:auto; margin-left:auto");
 
-    $(".bkResults").append(tempTitle,tempBR,tempImg);
+    $(".bkFinal").append(tempTitle,tempBR,tempImg);
 
 }
 
