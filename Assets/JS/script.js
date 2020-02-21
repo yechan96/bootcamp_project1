@@ -196,8 +196,9 @@ function addToFinalSongs(inputArray,weight,outputArray){
 function displaySongs(object,index){
     $(".musicSelection").empty();
     var tempArray = object[index];
-    var songIndex = 0;
-    while(songIndex<10){
+    var songCount = 0;
+    var songIndex =0;
+    while(songCount<10){
         var tempItem = tempArray[songIndex];
         if(tempItem.kind == "song"){
             var tempHead = $("<div>").attr("class", "musicChoice tile is-child box");
@@ -219,6 +220,10 @@ function displaySongs(object,index){
 
             tempHead.append(tempImageHead,tempSongHead);
             $(".musicSelection").append(tempHead);
+            songIndex++;
+            songCount++;
+        }
+        else{
             songIndex++;
         }
     }
