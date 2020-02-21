@@ -7,20 +7,29 @@ $(document).ready(function(){
     var location ="";
 
     //asks user for current location and save location and weather info.
-    navigator.geolocation.getCurrentPosition(success, error)
+    navigator.geolocation.getCurrentPosition(success, error);
 
     $(".searchButton").on("click",function(){
         $(".wrapperPg2").empty()
         
         bookSearchTitle =  $("#bkSearchInp").val();
-        if(bookSearchTitle==""){
-            $("#blankModal").show()
-            $("#blankModal").delay(5000).fadeOut()
-            return
+
+        if($("#bkSearchInp").val()==""){
+            $("#blankModal").show();
+            $("#blankModal").delay(5000).fadeOut();
+            return;
         }
+        if($("#locationInp").val()==""&&location==""){
+            $("#blankModal").show();
+            $("#blankModal").delay(5000).fadeOut();
+            return;
+        }
+
         $("#bkSearchInp").val("");
+
         if(location == ""){
             location = $("#locationInp").val();
+            callWeatherAPI(location,"","");
             $("#locationInp").val("");
         }
 
@@ -46,7 +55,7 @@ $(document).ready(function(){
                                 arryExist = true;
                             }
                         }
-                        displayLibArry(libraryArr,indexCounter)
+                        displayLibArry(libraryArr,indexCounter);
                         indexCounter++
                 }
             }
@@ -56,7 +65,7 @@ $(document).ready(function(){
     })
 
     $(".homeButton").on("click",function(){
-        //clearall function
+        finalResults = {};
         hideExcept([".page1"]);
     })
 
@@ -64,8 +73,7 @@ $(document).ready(function(){
         var index = this.value;
         if(finalResults[index] != null){
             displaySongs(finalResults,index);
-            //displayBook;
-            //displayWeather;
+            displayBook(libraryArr,index);
             hideExcept([".homeButton",".toSearchButton",".page3"]);
         }
         else{
@@ -78,9 +86,11 @@ $(document).ready(function(){
                 subject = "book";
             }
             var weatherKeyWord ="";
-            var weatherDescription ="";
-            // itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)
-            $.when(itunesSearch("chanmina"),itunesSearch("new hope club"),itunesSearch("10cm"),itunesSearch("bts")).done(function(a1,a2,a3,a4){
+            var weatherDescription =weather.weather[0].main;
+            if(weatherKeyWords[weatherDescription] !=undefined){
+                weatherKeyWord = weatherKeyWords[weatherDescription];
+            }
+            $.when(itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)).done(function(a1,a2,a3,a4){
                 var finalSongsArr =[];
                 var titleSongs = JSON.parse(a1[0]).results;
                 var subjectSongs = JSON.parse(a2[0]).results;
@@ -94,9 +104,7 @@ $(document).ready(function(){
                 shuffle(finalSongsArr);
                 finalResults[index] = finalSongsArr;
                 displaySongs(finalResults,index);
-                console.log(finalResults);
-                //displayBook;
-                //displayWeather;
+                displayBook(libraryArr,index);
                 hideExcept([".homeButton",".toSearchButton",".page3"]);
             })
         }
@@ -112,27 +120,45 @@ $(document).ready(function(){
 
     //function if successfuly obtained user geolocation
     function success(position) {
-        var currentLat = "lat=" + position.coords.latitude
-        var currentLon = "lon=" + position.coords.longitude
-        var geoCoorUrl = "https://api.openweathermap.org/data/2.5/weather?"
-        var apiKey = "&units=imperial&appid=1a6304f914f966e5dc4a8226a424190d" 
-        var queryURL = geoCoorUrl + currentLat + "&" + currentLon + apiKey
+        callWeatherAPI("",position.coords.latitude,position.coords.longitude);
+    }
+
+
+    //function if failed to obtain user geolocation. Display location input for user to manually enter
+    function error() {
+        $("#locationInp").show();
+        $(".searchButton").show();
+    }
+
+    function callWeatherAPI(inputLocation, lat, long){
+        var baseURL = "https://api.openweathermap.org/data/2.5/weather?";
+        var apiKey = "&units=imperial&appid="+weatherAPIKeys["eric"];
+        var queryURL = "";
+        var currentLocation = "q="+inputLocation;
+        var currentLat = "lat=" + lat;
+        var currentLon = "lon=" + long;
+
+        if(inputLocation == ""){
+            queryURL = baseURL + currentLat + "&" + currentLon + apiKey;
+        }
+        else{
+            queryURL = baseURL+currentLocation+apiKey;
+        }
         $.ajax({
             url: queryURL,
             method: "GET",
             success: function(response){
-                weather = response
-                location = response.name
-                countryCode = response.sys.country
+                weather = response;
+                location = response.name;
+                countryCode = response.sys.country;
+                $(".locationTitle").text(location);
+                $(".weather-state").text(weather.weather[0].main);
+                $(".temperature-f").text(weather.main.temp);
+                $(".wind-speed").text(weather.wind.speed);
+                $(".Wis-half").attr("src", "http://openweathermap.org/img/wn/"+weather.weather[0].icon+"@2x.png");
                 $(".searchButton").show()
             }
-        })  
-    }
-
-    //function if failed to obtain user geolocation. Display location input for user to manually enter
-    function error() {
-        $("#locationInp").show()
-        $(".searchButton").show()
+        }) 
     }
 
 })
@@ -176,7 +202,7 @@ function displayLibArry(arry, counter){
 }
 
 function itunesSearch(word,countryCode){
-    var ituneQuery = "https://itunes.apple.com/search?term="+word; //&country=ca"
+    var ituneQuery = "https://itunes.apple.com/search?term="+word+"&country="+countryCode;
     return $.ajax({
         url: ituneQuery,
         method: "GET"
@@ -226,6 +252,20 @@ function displaySongs(object,index){
             songIndex++;
         }
     }
+}
+
+function displayBook(array,index){
+    $(".bkResults").empty();
+    var tempItem = array[index];
+    var tempTitle = $("<strong>").attr("class","finalTitle");
+    tempTitle.attr("style", "text-align: center;");
+    tempTitle.text(tempItem.title);
+    var tempBR = $("<br>");
+    var tempImg = $("<img>").attr("src", "http://covers.openlibrary.org/b/id/"+tempItem.cover_i+"-L.jpg");
+    tempImg.attr("style", "margin-right:auto; margin-left:auto");
+
+    $(".bkResults").append(tempTitle,tempBR,tempImg);
+
 }
 
 function shuffle(array){
