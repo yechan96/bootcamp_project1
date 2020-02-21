@@ -44,7 +44,6 @@ $(document).ready(function(){
             method: "GET",
             success: function(response){
                 libraryArr = response.docs;
-                console.log(libraryArr)
                 var indexCounter = 0;
                 //loop to get 10 results to display from the array
                 for(i = 0; i<10; i++){
@@ -120,14 +119,6 @@ $(document).ready(function(){
 
 
     //***************FUNCTION within Scope  *************/
-    function displayWeather(){
-        console.log("this is the weather", weather)
-        $("#weatherName").text(weather.name)
-        $("#weatherState").text(weather.state)
-        $("#weatherTemp").text(weather.temp)
-        $("#weatherWind").text(weather.wind)
-        $("#weatherIcon").attr("src", `http://openweathermap.org/img/wn/${weather.icon}.png`)
-    }
 
     //function if successfuly obtained user geolocation
     function success(position) {
