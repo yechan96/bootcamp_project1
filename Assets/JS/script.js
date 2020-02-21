@@ -99,9 +99,9 @@ $(document).ready(function(){
                 var keywordSongs = JSON.parse(a4[0]).results;
 
                 addToFinalSongs(titleSongs,5,finalSongsArr);
-                addToFinalSongs(subjectSongs,5,finalSongsArr);
-                addToFinalSongs(weatherSongs,5,finalSongsArr);
-                addToFinalSongs(keywordSongs,5,finalSongsArr);
+                addToFinalSongs(subjectSongs,3,finalSongsArr);
+                addToFinalSongs(weatherSongs,2,finalSongsArr);
+                addToFinalSongs(keywordSongs,2,finalSongsArr);
                 shuffle(finalSongsArr);
                 finalResults[index] = finalSongsArr;
                 displaySongs(finalResults,index);
