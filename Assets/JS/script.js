@@ -18,7 +18,13 @@ $(document).ready(function(){
 
     $(".searchButton").on("click",function(){
         $(".wrapperPg2").empty()
+        
         bookSearchTitle =  $("#bkSearchInp").val();
+        if(bookSearchTitle==""){
+            $("#blankModal").show()
+            $("#blankModal").delay(5000).fadeOut()
+            return
+        }
         $("#bkSearchInp").val("");
         if(location == ""){
 
@@ -37,7 +43,6 @@ $(document).ready(function(){
             success: function(response){
                 libraryArr = response.docs;
                 var indexCounter = 0;
-
                 //loop to get 10 results to display from the array
                 for(i = 0; i<10; i++){
                     var arryExist = false; 
@@ -230,8 +235,9 @@ function addToFinalSongs(inputArray,weight,outputArray){
 function displaySongs(object,index){
     $(".musicSelection").empty();
     var tempArray = object[index];
-    var songIndex = 0;
-    while(songIndex<10){
+    var songCount = 0;
+    var songIndex =0;
+    while(songCount<10){
         var tempItem = tempArray[songIndex];
         if(tempItem.kind == "song"){
             var tempHead = $("<div>").attr("class", "musicChoice tile is-child box");
@@ -253,6 +259,10 @@ function displaySongs(object,index){
 
             tempHead.append(tempImageHead,tempSongHead);
             $(".musicSelection").append(tempHead);
+            songIndex++;
+            songCount++;
+        }
+        else{
             songIndex++;
         }
     }
