@@ -133,7 +133,7 @@ $(document).ready(function(){
 
     function callWeatherAPI(inputLocation, lat, long){
         var baseURL = "https://api.openweathermap.org/data/2.5/weather?";
-        var apiKey = "&units=imperial&appid="+weatherAPIKeys["eric"];
+        var apiKey = "&units=imperial&appid="+weatherAPIKeys["ashely"];
         var queryURL = "";
         var currentLocation = "q="+inputLocation;
         var currentLat = "lat=" + lat;

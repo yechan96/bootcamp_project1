@@ -1,5 +1,6 @@
 .navButton{
     color: white;
+    width: max-content;
 }
 
 #blankModal{
