@@ -62,7 +62,7 @@
 
                                 <div class="control" style="margin-top: 1em;">
                                     <button class="button is-info searchButton is-left" style="display: none;">Submit</button>
-                                    <span class="is-right" id="blankModal" style="display: none;">Please enter a book title.</span>
+                                    <span class="is-right" id="blankModal" style="display: none;">Please complete the form.</span>
                                 </div> 
                             </div> 
                         <!-- end of page1 -->
@@ -73,18 +73,6 @@
                     <!-- page 2 -->
                     <div class="page2" style="display: none;">
                         <div class="wrapperPg2">
-                            <!-- start of button -->
-                            <!-- <div class="button columns bkResults">
-                                <figure class="is-one-fifth">
-                                    <img class="bkImg" src="https://covers.openlibrary.org/b/id/240727-S.jpg"/>
-                                </figure>
-                                <div class="bkInfo column">
-                                    <strong class="bkTitle">Title</strong> 
-                                    <p class="bkElements">By: Author</p>
-                                    <p class="bkElements">Publish Year: Year</p>
-                                </div>
-                            </div> -->
-                            <!-- end of button -->
                         </div>  
                     </div>
                     <!-- end of page2 -->
@@ -98,9 +86,6 @@
                             <!-- Example of Book UI -->
                             <div class="tile is-vertical is-parent">
                                 <div class="bkResults tile is-child box">
-                                    <strong class="finalTitle">The Particular Sadness of Lemon Cake</strong>
-                                    <br/>
-                                    <img src="http://covers.openlibrary.org/b/isbn/9780385533225-L.jpg">
                                 </div>
                             </div>
                             <!-- Weather DIV -->
@@ -108,11 +93,11 @@
                                 <div class = "weatherContent tile is-child is-vertical box">
                                     <strong class = "locationTitle">Location (City Name)</strong>
                                     <div class ="weatherImage">
-                                        <img src="http://openweathermap.org/img/wn/13d@2x.png" alt="" width="200px" class ="Wis-half">
+                                        <img alt="" width="200px" class ="Wis-half">
                                         <div class = "weatherStatus">
-                                            <p class ="weatherElements"><b>Weather State:</b> Snow</p>
-                                            <p class ="weatherElements"><b>Temperature:</b> 30F</p>
-                                            <p class ="weatherElements"><b>Wind Speed:</b> 15mph</p>
+                                            <p class ="weatherElements"><b>Weather State:</b> <span class="weather-state"></span></p>
+                                            <p class ="weatherElements"><b>Temperature:</b> <span class="temperature-f"></span></p>
+                                            <p class ="weatherElements"><b>Wind Speed:</b> <span class="wind-speed"></span></p>
                                         </div>
                                     </div>
                                 </div>
