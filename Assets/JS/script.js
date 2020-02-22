@@ -5,12 +5,14 @@ $(document).ready(function(){
     var finalResults = {}; //push object with finalSongsArr, etc.
     var bookSearchTitle = "";
     var location ="";
+    var isUserLocation = false;
 
     //asks user for current location and save location and weather info.
     navigator.geolocation.getCurrentPosition(success, error);
 
-    $(".searchButton").on("click",function(){
-        $(".wrapperPg2").empty()
+    $(".searchButton").on("click",function(event){
+        $(".wrapperPg2").empty();
+        event.preventDefault();
         
         bookSearchTitle =  $("#bkSearchInp").val();
 
@@ -31,7 +33,6 @@ $(document).ready(function(){
 
             location = $("#locationInp").val();
             callWeatherAPI(location,"","");
-            $("#locationInp").val("");
         }
         
         var bkApiUrl = "https://openlibrary.org/search.json?q=";
@@ -67,7 +68,9 @@ $(document).ready(function(){
 
     $(".homeButton").on("click",function(){
         finalResults = {};
-        location = "";
+        if(isUserLocation == false){
+            location = "";
+        }
         hideExcept([".page1"]);
     })
 
@@ -82,7 +85,7 @@ $(document).ready(function(){
             var subject = "";
             var title = libraryArr[index].title;
             if(libraryArr[index].subject != undefined){
-                subject = libraryArr[index].subject[Math.floor(Math.random()*libraryArr[index].subject.length)];
+                subject = libraryArr[index].subject[Math.floor(Math.random()*(libraryArr[index].subject.length)-1)];
             }
             else{
                 subject = "book";
@@ -90,7 +93,7 @@ $(document).ready(function(){
             var weatherKeyWord ="";
             var weatherDescription =weather.weather[0].main;
             if(weatherKeyWords[weatherDescription] !=undefined){
-                weatherKeyWord = weatherKeyWords[weatherDescription][Math.floor(Math.random()*weatherKeyWords[weatherDescription].length)];
+                weatherKeyWord = weatherKeyWords[weatherDescription][Math.floor(Math.random()*(weatherKeyWords[weatherDescription].length)-1)];
             }
             $.when(itunesSearch(title,countryCode),itunesSearch(subject,countryCode),itunesSearch(weatherKeyWord,countryCode),itunesSearch(weatherDescription,countryCode)).done(function(a1,a2,a3,a4){
                 var finalSongsArr =[];
@@ -124,6 +127,7 @@ $(document).ready(function(){
     //function if successfuly obtained user geolocation
     function success(position) {
         callWeatherAPI("",position.coords.latitude,position.coords.longitude);
+        isUserLocation = true;
     }
 
 
@@ -135,7 +139,7 @@ $(document).ready(function(){
 
     function callWeatherAPI(inputLocation, lat, long){
         var baseURL = "https://api.openweathermap.org/data/2.5/weather?";
-        var apiKey = "&units=imperial&appid="+weatherAPIKeys[Math.floor(Math.random()*2)];
+        var apiKey = "&units=imperial&appid="+weatherAPIKeys[Math.floor(Math.random()*(weatherAPIKeys.length-1))];
         var queryURL = "";
         var currentLocation = "q="+inputLocation;
         var currentLat = "lat=" + lat;
@@ -221,7 +225,7 @@ function displaySongs(object,index){
     var songIndex =0;
     while(songCount<10){
         var tempItem = tempArray[songIndex];
-        if(tempItem.kind == "song"){
+        if(tempItem["kind"] == "song"){
             var tempHead = $("<div>").attr("class", "musicChoice tile is-child box");
             var tempImageHead = $("<figure>").attr("class","media-left");
             var tempImageContainer = $("<p>").attr("class","image is-64x64");
