@@ -67,6 +67,7 @@ $(document).ready(function(){
 
     $(".homeButton").on("click",function(){
         finalResults = {};
+        location = "";
         hideExcept([".page1"]);
     })
 
@@ -100,8 +101,9 @@ $(document).ready(function(){
 
                 addToFinalSongs(titleSongs,5,finalSongsArr);
                 addToFinalSongs(subjectSongs,3,finalSongsArr);
-                addToFinalSongs(weatherSongs,2,finalSongsArr);
-                addToFinalSongs(keywordSongs,2,finalSongsArr);
+                addToFinalSongs(weatherSongs,1,finalSongsArr);
+                addToFinalSongs(keywordSongs,1,finalSongsArr);
+                shuffle(finalSongsArr);
                 shuffle(finalSongsArr);
                 finalResults[index] = finalSongsArr;
                 displaySongs(finalResults,index);
@@ -133,7 +135,7 @@ $(document).ready(function(){
 
     function callWeatherAPI(inputLocation, lat, long){
         var baseURL = "https://api.openweathermap.org/data/2.5/weather?";
-        var apiKey = "&units=imperial&appid="+weatherAPIKeys["ashely"];
+        var apiKey = "&units=imperial&appid="+weatherAPIKeys[Math.floor(Math.random()*2)];
         var queryURL = "";
         var currentLocation = "q="+inputLocation;
         var currentLat = "lat=" + lat;
@@ -175,13 +177,6 @@ function hideExcept(array){
     }
 }
 
-// function propagateOptions(array){
-//     for (var i =0; i<array.length ; i++){
-//         var tempCountry = $("<option>").attr("value", array[i].Code);
-//         tempCountry.text(array[i].Country);
-//         $("#countryOptions").append(tempCountry);
-//     }
-// }
 
 //makes the new html elements and appends them to display library search results
 function displayLibArry(arry, counter){
