@@ -12,10 +12,10 @@ landing page when user allows location: (book title needs to be filled to contin
 <img src="https://user-images.githubusercontent.com/34842627/75088007-25269a00-54fc-11ea-9346-d43e2f85292f.png">
 
 landing page when unable to get user location: (both book title and location need to be filled to continue to next step)
-https://user-images.githubusercontent.com/34842627/75088012-2c4da800-54fc-11ea-8eda-571f2d40ea8d.png
+<img src="https://user-images.githubusercontent.com/34842627/75088012-2c4da800-54fc-11ea-8eda-571f2d40ea8d.png">
 
 Search results displayed as follows. User may go back to previous page by clicking link on top left corner. Based on the book user clicked heads to final page:
-https://user-images.githubusercontent.com/34842627/75088003-14762400-54fc-11ea-9650-397ad7c3e259.png
+<img src="https://user-images.githubusercontent.com/34842627/75088003-14762400-54fc-11ea-9650-397ad7c3e259.png">
 
 Final page of the app (user may go back to previous page or home page by the links on upper left corner):
-https://user-images.githubusercontent.com/34842627/75087996-fc060980-54fb-11ea-99cc-48f47e4fece3.png
+<img src="https://user-images.githubusercontent.com/34842627/75087996-fc060980-54fb-11ea-99cc-48f47e4fece3.png">
