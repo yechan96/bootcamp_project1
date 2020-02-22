@@ -6,3 +6,4 @@ On landing page, prompts user for current location. User have option to allow/bl
 10 results will then be displayed based on user's input keywords that includes images, title, author and first published year. 
 Picking a result will lead the user to book, weather and 10 songs that is generated based on the search keywords, location and weather. 
 
+https://user-images.githubusercontent.com/34842627/75087996-fc060980-54fb-11ea-99cc-48f47e4fece3.png
